@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function DiscussionForm({ onSubmit }) {
+function DiscutionForm({ onSubmit }) {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
@@ -10,13 +10,13 @@ function DiscussionForm({ onSubmit }) {
     };
 
     return (
-        <form className="form discussionForm" onSubmit={handleSubmit}>
+        <form className="form discutionForm" onSubmit={handleSubmit}>
             <h2 className="formTitle">Nouvelle discussion</h2>
 
             <div className="formGroup">
-                <label htmlFor="discussionTitle" className="formLabel">Titre</label>
+                <label htmlFor="discutionTitle" className="formLabel">Titre</label>
                 <input
-                    id="discussionTitle"
+                    id="discutionTitle"
                     type="text"
                     className="formInput"
                     value={title}
@@ -26,9 +26,9 @@ function DiscussionForm({ onSubmit }) {
             </div>
 
             <div className="formGroup">
-                <label htmlFor="discussionContent" className="formLabel">Message</label>
+                <label htmlFor="discutionContent" className="formLabel">Message</label>
                 <textarea
-                    id="discussionContent"
+                    id="discutionContent"
                     className="formTextarea"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
@@ -43,4 +43,4 @@ function DiscussionForm({ onSubmit }) {
     );
 }
 
-export default DiscussionForm;
+export default DiscutionForm;

@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import LoginForm from "./components/forms/LoginForm";
 import RegisterForm from "./components/forms/RegisterForm";
-import DiscussionForm from "./components/forms/DiscussionForm";
+import DiscutionForm from "./components/forms/DiscutionForm";
 import MessageForm from "./components/forms/MessageForm";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <nav>
         <Link to="/login">Connexion</Link> |{" "}
         <Link to="/register">Créer un compte</Link> |{" "}
-        <Link to="/discussion">Nouvelle discussion</Link>
+        <Link to="/discution">Nouvelle discution</Link>
       </nav>
 
       <Routes>
@@ -24,8 +24,8 @@ function App() {
           element={<RegisterForm onSubmit={(d) => console.log("register", d)} />}
         />
         <Route
-          path="/discussion"
-          element={<DiscussionForm onSubmit={(d) => console.log("discussion", d)} />}
+          path="/discution"
+          element={<DiscutionForm onSubmit={(d) => console.log("discution", d)} />}
         />
         <Route
           path="/message"
