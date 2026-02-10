@@ -1,0 +1,31 @@
+.aside {
+    background-color: #6D307C80;
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+}
+
+.asideTitle {
+    margin: 20px;
+    font-size: 1.1rem;
+}
+
+.asideList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.asideItem {
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.asideItem:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}

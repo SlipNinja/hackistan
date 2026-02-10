@@ -1,4 +1,8 @@
+
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Header from "./component/Header"
+import Home from "./pages/Home"
+import Footer from "./component/Footer"
 
 import LoginForm from "./components/forms/LoginForm";
 import RegisterForm from "./components/forms/RegisterForm";
@@ -8,6 +12,8 @@ import MessageForm from "./components/forms/MessageForm";
 function App() {
   return (
     <BrowserRouter>
+    <Header/>
+     
       <nav>
         <Link to="/login">Connexion</Link> |{" "}
         <Link to="/register">Créer un compte</Link> |{" "}
@@ -31,7 +37,10 @@ function App() {
           path="/message"
           element={<MessageForm onSubmit={(d) => console.log("message", d)} />}
         />
+        <Home/>
       </Routes>
+      
+     <Footer/>
     </BrowserRouter>
   );
 }
