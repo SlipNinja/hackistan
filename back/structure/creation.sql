@@ -14,8 +14,11 @@ CREATE TABLE discutions(
    id_discution INT AUTO_INCREMENT,
    title VARCHAR(250) NOT NULL,
    last_modified DATETIME NOT NULL,
+   description TEXT NOT NULL,
+   id_user INT NOT NULL,
    PRIMARY KEY(id_discution),
-   UNIQUE(title)
+   UNIQUE(title),
+   FOREIGN KEY(id_user) REFERENCES users(id_user)
 );
 
 CREATE TABLE posts(
