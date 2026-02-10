@@ -2,7 +2,7 @@ import db from "../config/db.js";
 
 export default class Post {
 	static async getAllFromDiscussion(id_discussion) {
-		const sql = `SELECT * FROM posts WHERE id_discussion = ${id_discussion} AND (status = 'accepted' OR status = 'pending')`;
+		const sql = `SELECT * FROM posts WHERE id_discussion = ${id_discussion} AND status = 'accepted'`;
 		return await db.execute(sql);
 	}
 

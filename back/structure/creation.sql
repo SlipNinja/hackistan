@@ -3,7 +3,7 @@ CREATE TABLE users(
    username VARCHAR(50) NOT NULL,
    email VARCHAR(50) NOT NULL,
    password VARCHAR(250) NOT NULL,
-   role VARCHAR(50) NOT NULL,
+   role ENUM("admin", "user") NOT NULL,
    is_banned BOOLEAN DEFAULT false,
    PRIMARY KEY(id_user),
    UNIQUE(username),
