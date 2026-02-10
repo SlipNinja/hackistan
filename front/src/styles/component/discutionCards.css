@@ -30,10 +30,15 @@
     font-size: 1rem;
 }
 
-.discutionMeta {
+.discutionLoop{
     display: flex;
     gap: 6px;
     margin-top: 5px;
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.7);
+}
+.postCount {
+    margin-left: auto; 
+    font-weight: bold;
+    color: #EB58BE; 
 }
