@@ -1,0 +1,23 @@
+.homeContainer {
+    margin-top: 5rem;
+    margin-left: 2rem;
+    display: flex;      
+    gap: 1rem;           
+}
+
+.aside {
+    width: 250px;              
+    background-color: #6D307C80; 
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+    position: sticky;         
+    top: 20px;                 
+    height: fit-content;      
+}
+
+.mainContent {
+    flex: 1;                 
+    padding: 20px;
+}
+

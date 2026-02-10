@@ -23,7 +23,7 @@ Le projet consiste en un forum où les utilisateurs peuvent discuter de sujets c
 
 L'architecture est la suivante :
 
-![alt text](image.png)
+![alt text](architecture.png)
 
 ## EndPoint
 
