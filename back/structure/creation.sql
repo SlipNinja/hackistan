@@ -10,11 +10,11 @@ CREATE TABLE users(
    UNIQUE(email)
 );
 
-CREATE TABLE discussions(
-   id_discussion INT AUTO_INCREMENT,
+CREATE TABLE discutions(
+   id_discution INT AUTO_INCREMENT,
    title VARCHAR(250) NOT NULL,
    last_modified DATETIME NOT NULL,
-   PRIMARY KEY(id_discussion),
+   PRIMARY KEY(id_discution),
    UNIQUE(title)
 );
 
@@ -24,11 +24,11 @@ CREATE TABLE posts(
    date_posted DATETIME NOT NULL,
    status ENUM("accepted", "pending", "banned") NOT NULL,
    id_anwsered_post INT,
-   id_discussion INT NOT NULL,
+   id_discution INT NOT NULL,
    id_user INT NOT NULL,
    PRIMARY KEY(id_post),
    FOREIGN KEY(id_anwsered_post) REFERENCES posts(id_post),
-   FOREIGN KEY(id_discussion) REFERENCES discussions(id_discussion),
+   FOREIGN KEY(id_discution) REFERENCES discutions(id_discution),
    FOREIGN KEY(id_user) REFERENCES users(id_user)
 );
 
@@ -39,10 +39,10 @@ CREATE TABLE tags(
    UNIQUE(name)
 );
 
-CREATE TABLE discussion_tag(
-   id_discussion INT,
+CREATE TABLE discution_tag(
+   id_discution INT,
    id_tag INT,
-   PRIMARY KEY(id_discussion, id_tag),
-   FOREIGN KEY(id_discussion) REFERENCES discussions(id_discussion),
+   PRIMARY KEY(id_discution, id_tag),
+   FOREIGN KEY(id_discution) REFERENCES discutions(id_discution),
    FOREIGN KEY(id_tag) REFERENCES tags(id_tag)
 );
