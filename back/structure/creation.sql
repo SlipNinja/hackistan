@@ -13,7 +13,7 @@ CREATE TABLE users(
 CREATE TABLE discussions(
    id_discussion INT AUTO_INCREMENT,
    title VARCHAR(250) NOT NULL,
-   last_modified VARCHAR(50) NOT NULL,
+   last_modified DATETIME NOT NULL,
    PRIMARY KEY(id_discussion),
    UNIQUE(title)
 );
@@ -21,7 +21,7 @@ CREATE TABLE discussions(
 CREATE TABLE posts(
    id_post INT AUTO_INCREMENT,
    content TEXT NOT NULL,
-   date_posted VARCHAR(50) NOT NULL,
+   date_posted DATETIME NOT NULL,
    status ENUM("accepted", "pending", "banned") NOT NULL,
    id_anwsered_post INT,
    id_discussion INT NOT NULL,
@@ -35,8 +35,14 @@ CREATE TABLE posts(
 CREATE TABLE tags(
    id_tag INT AUTO_INCREMENT,
    name VARCHAR(50) NOT NULL,
-   id_discussion INT NOT NULL,
    PRIMARY KEY(id_tag),
-   UNIQUE(name),
-   FOREIGN KEY(id_discussion) REFERENCES discussions(id_discussion)
+   UNIQUE(name)
+);
+
+CREATE TABLE discussion_tag(
+   id_discussion INT,
+   id_tag INT,
+   PRIMARY KEY(id_discussion, id_tag),
+   FOREIGN KEY(id_discussion) REFERENCES discussions(id_discussion),
+   FOREIGN KEY(id_tag) REFERENCES tags(id_tag)
 );
