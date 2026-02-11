@@ -1,0 +1,82 @@
+.registerForm {
+    width: 100%;
+    max-width: 460px;
+    margin: 40px auto;
+    padding: 26px;
+    border-radius: 18px;
+
+    background: linear-gradient(180deg, rgba(18, 18, 26, 0.85), rgba(26, 26, 40, 0.90));
+    border: 1px solid rgba(227, 82, 198, 0.25);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.60);
+    backdrop-filter: blur(10px);
+}
+
+.registerForm .formTitle {
+    text-align: center;
+    margin: 0 0 22px;
+    font-size: 22px;
+    color: #f2f0ff;
+}
+
+.registerForm .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.registerForm .formLabel {
+    font-size: 13px;
+    color: rgba(242, 240, 255, 0.7);
+}
+
+.registerForm .formInput {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(227, 82, 198, 0.20);
+    background: rgba(8, 8, 14, 0.85);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.registerForm .formInput:focus {
+    border-color: #e352c6;
+    box-shadow:
+        0 0 0 4px rgba(227, 82, 198, 0.20),
+        0 0 20px rgba(140, 60, 255, 0.28);
+}
+
+.registerForm .formButton {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: #fff;
+
+    background: linear-gradient(90deg, #e352c6, #8c3cff);
+    box-shadow: 0 10px 25px rgba(227, 82, 198, 0.30);
+    transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.registerForm .formButton:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    box-shadow: 0 14px 30px rgba(227, 82, 198, 0.45);
+}
+
+.registerForm .formButton:active {
+    transform: translateY(0px);
+}
+
+/* (optionnel) petit texte en bas */
+.registerForm .helperText {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(242, 240, 255, 0.6);
+}
