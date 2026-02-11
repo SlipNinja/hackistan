@@ -1,5 +1,6 @@
 import "./../styles/component/discutionCards.css";
 import { FaMessage } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 // import api from '../../api/axios';
 import { useState, useEffect } from "react";
 
@@ -37,6 +38,7 @@ export default function discutionCards() {
 
         return (
           <div key={discussion.id} className="discutionCard">
+            <Link to={`/discussion/${discussion.id}`} key={discussion.id}  >
             <h3>{discussion.title}</h3>
             <p>{discussion.description}</p>
 
@@ -46,6 +48,7 @@ export default function discutionCards() {
               <span>{discussion.last_modified}</span>
               <span className="postCount"><FaMessage /> {post?.post_count}</span>
             </div>
+          </Link>
           </div>
         );
       })}

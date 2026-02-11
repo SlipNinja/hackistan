@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return <>
    <div className="headerBanner">
-     <Logo/>
+      <Link to="/"> <Logo/></Link>
      <div className="leftContainer">
       <Link to="/login"> <Button text="Connexion"/></Link>
      </div>

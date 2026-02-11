@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/Header"
 import Home from "./pages/home"
 import Footer from "./components/Footer"
@@ -8,6 +8,7 @@ import LoginForm from "./components/forms/LoginForm";
 import RegisterForm from "./components/forms/RegisterForm";
 import DiscutionForm from "./components/forms/DiscutionForm";
 import MessageForm from "./components/forms/MessageForm";
+import DiscussionPage from "./pages/DiscutionPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
       <Routes>
         <Route path="/" element= {<Home/>}/>
+        <Route path="/discussion/:id" element={<DiscussionPage />} />
         <Route
           path="/login"
           element={<LoginForm onSubmit={(d) => console.log("login", d)} />}
