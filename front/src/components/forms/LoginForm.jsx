@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./../../styles/component/loginForm.css"
 
 function LoginForm({ onSubmit }) {
     const [email, setEmail] = useState("");
@@ -10,6 +11,7 @@ function LoginForm({ onSubmit }) {
     };
 
     return (
+        <div className="loginContent">
         <form className="form loginForm" onSubmit={handleSubmit}>
             <h2 className="formTitle">Connexion</h2>
 
@@ -41,6 +43,7 @@ function LoginForm({ onSubmit }) {
                 Se connecter
             </button>
         </form>
+        </div>
     );
 }
 

@@ -28,7 +28,7 @@ export default function discutionCards() {
    useEffect(() => {
     async function fetchPostCount() {
       try {     
-        const response = await fetch(`http://localhost:3000/posts/count/${discussion.id}`);
+        const response = await fetch(`http://localhost:3000/posts/count/${discutions.id_discution}`);
         const data = await response.json();
         setPostCount(data);
         console.log(data)
@@ -47,13 +47,13 @@ export default function discutionCards() {
         // const user = users.find(u => u.id === discussion.id_user);
 
         return (
-          <div key={discussion.id} className="discutionCard">
-            <Link to={`/discussion/${discussion.id}`} key={discussion.id}  >
+          <div key={discussion.id_discution} className="discutionCard">
+            <Link to={`/discution/${discussion.id_discution}`} key={discussion.id_discution}  >
             <h3>{discussion.title}</h3>
             <p>{discussion.description}</p>
 
             <div className="discutionLoop">
-              {/* <span>{user?.username}</span> */}
+              <span>{discussion.username}</span>
               <span>•</span>
               <span>{discussion.last_modified}</span>
               <span className="postCount"><FaMessage /> {postCount?.post_count}</span>

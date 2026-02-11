@@ -13,5 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  margin:0
+  margin:0;
+}
+#root {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 15% 1fr 10%;
 }
