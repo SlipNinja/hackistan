@@ -24,36 +24,27 @@
     backdrop-filter: blur(10px);
 }
 
-.discussionFormTitle {
-    margin: 0 0 6px;
+
+.discutionForm .formTitle {
+    margin: 0 0 18px;
     font-size: 22px;
     color: var(--hk-text);
 }
 
-.discussionFormSubtitle {
-    margin: 0 0 18px;
-    font-size: 14px;
-    color: var(--hk-muted);
-}
-
-.discussionFormGrid {
-    display: grid;
-    gap: 14px;
-}
-
-.discussionFormGrid {
-    display: grid;
+.discutionForm .formGroup {
+    display: flex;
+    flex-direction: column;
     gap: 8px;
+    margin-bottom: 16px;
 }
 
-.discussionFormLabel {
+.discutionForm .formLabel {
     font-size: 13px;
     color: var(--hk-muted);
 }
 
-.discussionFormInput,
-.discussionFormTextarea,
-.discussionFormSelect {
+.discutionForm .formInput,
+.discutionForm .formTextarea {
     width: 100%;
     padding: 12px 12px;
     border-radius: 12px;
@@ -66,39 +57,28 @@
     transition: border-color .15s ease, box-shadow .15s ease, transform .05s ease;
 }
 
-.discussionFormTextarea {
+.discutionForm .formTextarea {
     min-height: 140px;
     resize: vertical;
     line-height: 1.5;
 }
 
-.discussionFormInput::placeholder,
-.discussionFormTextarea::placeholder {
+.discutionForm .formInput::placeholder,
+.discutionForm .formTextarea::placeholder {
     color: rgba(242, 240, 255, 0.45);
 }
 
-.discussionFormInput:focus,
-.discussionFormTextarea:focus,
-.discussionFormSelect:focus {
+.discutionForm .formInput:focus,
+.discutionForm .formTextarea:focus {
     border-color: rgba(227, 82, 198, 0.75);
     box-shadow:
         0 0 0 4px rgba(227, 82, 198, 0.18),
         0 0 22px rgba(140, 60, 255, 0.18);
 }
 
-.discussionFormError {
-    font-size: 12px;
-    color: rgba(255, 107, 214, 0.95);
-}
 
-.discussionFormActions {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-    margin-top: 12px;
-}
-
-.discussionFormBtn {
+.discutionForm .formButton {
+    width: 100%;
     border: none;
     cursor: pointer;
     padding: 12px 16px;
@@ -114,19 +94,13 @@
     transition: transform .08s ease, filter .2s ease, box-shadow .2s ease;
 }
 
-.discussionFormBtn:hover {
+.discutionForm .formButton:hover {
     filter: brightness(1.05);
     box-shadow:
         0 12px 32px rgba(227, 82, 198, 0.30),
         0 0 28px rgba(140, 60, 255, 0.18);
 }
 
-.discussionFormBtn:active {
+.discutionForm .formButton:active {
     transform: translateY(1px);
-}
-
-.discussionFormBtn--secondary {
-    background: rgba(8, 8, 14, 0.55);
-    border: 1px solid rgba(227, 82, 198, 0.25);
-    color: var(--hk-text);
 }
