@@ -2,7 +2,7 @@ import db from "../config/db.js";
 
 export default class Post {
 	static async getAllFromDiscution(id_discution) {
-		const sql = `SELECT * FROM posts WHERE id_discution = ${id_discution} AND status = 'accepted'`;
+		const sql = `SELECT id_post, content, date_posted, status, id_anwsered_post, id_discution, posts.id_user, username FROM posts JOIN users ON posts.id_user = users.id_user WHERE id_discution = ${id_discution} AND status = 'accepted'`;
 		return await db.execute(sql);
 	}
 
