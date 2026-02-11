@@ -13,7 +13,7 @@ export default class Discution {
 	}
 
 	static async getById(id_discution) {
-		const sql = `SELECT * FROM discutions WHERE id_discution = ${id_discution}`;
+		const sql = `SELECT id_discution, title, last_modified, description, discutions.id_user, username FROM discutions JOIN users ON users.id_user = discutions.id_user WHERE id_discution = ${id_discution}`;
 		return await db.execute(sql);
 	}
 

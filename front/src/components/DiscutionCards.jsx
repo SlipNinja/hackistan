@@ -1,15 +1,13 @@
 import "./../styles/component/discutionCards.css";
 import { FaMessage } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState,useEffect } from "react";
 
-
-export default function discutionCards() {
+export default function DiscutionCards() {
 
   const [discutions, setDiscutions] = useState([]);
   const [postCount, setPostCount] = useState([]);
 
-  
    
   useEffect(() => {
     async function fetchDiscutions() {
@@ -39,14 +37,15 @@ export default function discutionCards() {
     fetchPostCount();
   }, []);
 
+
   return (
     <div className="discutionContainer">
       <h2 className="discutionTitle">Dernières discussions</h2>
 
-      {discutions.map(discussion => {
-        // const user = users.find(u => u.id === discussion.id_user);
+      {discutions.map((discussion) => {
 
         return (
+
           <div key={discussion.id_discution} className="discutionCard">
             <Link to={`/discution/${discussion.id_discution}`} key={discussion.id_discution}  >
             <h3>{discussion.title}</h3>
@@ -59,6 +58,7 @@ export default function discutionCards() {
               <span className="postCount"><FaMessage /> {postCount?.post_count}</span>
             </div>
           </Link>
+
           </div>
         );
       })}
