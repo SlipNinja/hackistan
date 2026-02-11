@@ -6,8 +6,8 @@ export default class Tag {
 		return await db.execute(sql);
 	}
 
-	static async getAllFromDiscussion(id_discussion) {
-		const sql = `SELECT name FROM tags JOIN discussion_tag ON tags.id_tag = discussion_tag.id_tag WHERE id_discussion = ${id_discussion}`;
+	static async getAllFromDiscution(id_discution) {
+		const sql = `SELECT name FROM tags JOIN discution_tag ON tags.id_tag = discution_tag.id_tag WHERE id_discution = ${id_discution}`;
 		return await db.execute(sql);
 	}
 
