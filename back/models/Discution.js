@@ -2,7 +2,8 @@ import db from "../config/db.js";
 
 export default class Discution {
 	static async getAll() {
-		const sql = "SELECT * FROM discutions ORDER BY last_modified";
+		const sql =
+			"SELECT id_discution, title, last_modified, description, discutions.id_user, username FROM discutions JOIN users ON users.id_user = discutions.id_user ORDER BY last_modified";
 		return await db.execute(sql);
 	}
 
