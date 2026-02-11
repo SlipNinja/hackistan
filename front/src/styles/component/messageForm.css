@@ -1,0 +1,85 @@
+.messageForm {
+    width: 100%;
+    max-width: 760px;
+    margin: 18px auto;
+    padding: 20px;
+    border-radius: 18px;
+
+    background: linear-gradient(180deg, rgba(18, 18, 26, 0.80), rgba(26, 26, 40, 0.88));
+    border: 1px solid rgba(227, 82, 198, 0.22);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+}
+
+.messageForm .formTitle {
+    margin: 0 0 14px;
+    font-size: 18px;
+    color: #f2f0ff;
+}
+
+.messageForm .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.messageForm .formLabel {
+    font-size: 13px;
+    color: rgba(242, 240, 255, 0.7);
+}
+
+.messageForm .formTextarea,
+.messageForm .formInput {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(227, 82, 198, 0.18);
+    background: rgba(8, 8, 14, 0.82);
+    color: #f2f0ff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.messageForm .formTextarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.messageForm .formTextarea:focus,
+.messageForm .formInput:focus {
+    border-color: #e352c6;
+    box-shadow:
+        0 0 0 4px rgba(227, 82, 198, 0.18),
+        0 0 22px rgba(140, 60, 255, 0.18);
+}
+
+.messageForm .formButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: #fff;
+
+    background: linear-gradient(90deg, #e352c6, #8c3cff);
+    box-shadow: 0 10px 26px rgba(227, 82, 198, 0.22);
+    transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.messageForm .formButton:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    box-shadow: 0 14px 30px rgba(227, 82, 198, 0.40);
+}
+
+.messageForm .formButton:active {
+    transform: translateY(0px);
+}
