@@ -6,7 +6,8 @@ import Footer from "./components/Footer";
 import "./styles/component/discutionForm.css";
 import "./styles/component/loginForm.css";
 import "./styles/component/messageForm.css";
-import "./styles/component/registerForm.css";
+// ⚠️ Mets cet import seulement si le fichier existe vraiment
+// import "./styles/component/registerForm.css";
 
 import LoginForm from "./components/forms/LoginForm";
 import RegisterForm from "./components/forms/RegisterForm";

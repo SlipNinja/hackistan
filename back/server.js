@@ -7,8 +7,8 @@ import cors from "cors";
 import "dotenv/config";
 
 const app = express();
-
-app.use(cors());
+const whiteList = ["http://localhost:5173"];
+app.use(cors({ origin: whiteList }));
 app.use(express.json());
 app.use("/users", user_router);
 app.use("/discutions", discution_router);
@@ -17,5 +17,5 @@ app.use("/tags", tag_router);
 
 const PORT = 3000;
 app.listen(PORT, () => {
-	console.log(`Serveur lancé sur http://localhost:${PORT}`);
+  console.log(`Serveur lancé sur http://localhost:${PORT}`);
 });

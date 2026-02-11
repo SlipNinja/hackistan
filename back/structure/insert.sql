@@ -13,13 +13,9 @@ VALUES (3, 'Bob', 'bob@orange.fr', '123', 'user');
 -- TAGS
 
 INSERT INTO `tags`(`id_tag`, `name`) VALUES (1, 'Computer');
-
 INSERT INTO `tags`(`id_tag`, `name`) VALUES (2, 'Casual');
-
 INSERT INTO `tags`(`id_tag`, `name`) VALUES (3, 'Life');
-
 INSERT INTO `tags`(`id_tag`, `name`) VALUES (4, 'Nature');
-
 INSERT INTO `tags`(`id_tag`, `name`) VALUES (5, 'Music');
 
 -- DISCUTIONS
