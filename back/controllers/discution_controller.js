@@ -11,7 +11,7 @@ export async function countDiscutions(req, res) {
 }
 
 export async function getDiscutionByID(req, res) {
-	const { id_discution } = req.params;
+	const id_discution = req.params.id;
 	const results = await Discution.getById(id_discution);
 	res.status(200).json(results[0]);
 }

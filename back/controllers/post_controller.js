@@ -6,13 +6,13 @@ export async function getPendingPosts(req, res) {
 }
 
 export async function getDiscutionPosts(req, res) {
-	const { id_discution } = req.params;
+	const id_discution = req.params.id;
 	const results = await Post.getAllFromDiscution(id_discution);
 	res.status(200).json(results[0]);
 }
 
 export async function countDiscutionPosts(req, res) {
-	const { id_discution } = req.params;
+	const id_discution = req.params.id;
 	const results = await Post.countFromDiscution(id_discution);
 	res.status(200).json(results[0]);
 }

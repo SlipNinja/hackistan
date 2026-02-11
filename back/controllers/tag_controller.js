@@ -6,7 +6,7 @@ export async function getTags(req, res) {
 }
 
 export async function getDiscutionTags(req, res) {
-	const { id_discution } = req.params;
+	const id_discution = req.params.id;
 	const results = await Tag.getAllFromDiscution(id_discution);
 	res.status(200).json(results[0]);
 }
