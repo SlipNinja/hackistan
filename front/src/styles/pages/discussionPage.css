@@ -1,0 +1,52 @@
+.discutionPage {
+    flex: 1;             
+    margin: 40px 0;       
+    background: #6D307C80;
+    border-radius: 15px;
+    padding: 25px;
+}
+.contentPage {
+    display: flex;
+    gap: 30px;           
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.discutionTitle {
+    margin: 25px;
+    color:white
+}
+
+.postCard {
+    background: #f4f4f4;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.reply {
+    margin-left: 3rem;
+    
+}
+
+.postName {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+.postUserName {
+    font-weight: bold;
+}
+.buttonAddPost {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.aside {
+    background-color: #6D307C80;
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+    margin-top: 40px
+}

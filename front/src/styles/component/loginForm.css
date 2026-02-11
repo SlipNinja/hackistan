@@ -1,0 +1,80 @@
+.loginForm {
+    width: 100%;
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 26px;
+    border-radius: 18px;
+
+    background: linear-gradient(180deg,
+            rgba(18, 18, 26, 0.85),
+            rgba(26, 26, 40, 0.90));
+
+    border: 1px solid rgba(227, 82, 198, 0.25);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.loginForm .formTitle {
+    text-align: center;
+    margin-bottom: 22px;
+    font-size: 22px;
+    color: #f2f0ff;
+}
+
+.loginForm .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.loginForm .formLabel {
+    font-size: 13px;
+    color: rgba(242, 240, 255, 0.7);
+}
+
+.loginForm .formInput {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(227, 82, 198, 0.2);
+    background: rgba(8, 8, 14, 0.85);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.loginForm .formInput::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.loginForm .formInput:focus {
+    border-color: #e352c6;
+    box-shadow:
+        0 0 0 4px rgba(227, 82, 198, 0.2),
+        0 0 20px rgba(140, 60, 255, 0.3);
+}
+
+.loginForm .formButton {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    color: white;
+
+    background: linear-gradient(90deg, #e352c6, #8c3cff);
+    box-shadow: 0 10px 25px rgba(227, 82, 198, 0.3);
+    transition: 0.2s ease;
+}
+
+.loginForm .formButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(227, 82, 198, 0.45);
+}
+
+.loginForm .formButton:active {
+    transform: translateY(0px);
+}

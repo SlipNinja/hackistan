@@ -18,6 +18,10 @@
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
 }
+.discutionCard, a{
+    text-decoration:none;
+    color : white
+}
 
 .discutionCard:hover {
     transform: translateY(-2px);
