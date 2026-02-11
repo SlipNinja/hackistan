@@ -3,21 +3,18 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/Header"
 import Home from "./pages/home"
 import Footer from "./components/Footer"
-
+import "./styles/component/discussionForm.css";
 import LoginForm from "./components/forms/LoginForm";
 import RegisterForm from "./components/forms/RegisterForm";
 import DiscutionForm from "./components/forms/DiscutionForm";
-import MessageForm from "./components/forms/MessageForm";
-import DiscussionPage from "./pages/DiscutionPage";
+import DiscutionPage from "./pages/DiscutionPage";
 
 function App() {
   return (
     <BrowserRouter>
-    <Header/>
-
-      <Routes>
+      <Header />
         <Route path="/" element= {<Home/>}/>
-        <Route path="/discussion/:id" element={<DiscussionPage />} />
+        <Route path="/discution/:id" element={<DiscutionPage />} />
         <Route
           path="/login"
           element={<LoginForm onSubmit={(d) => console.log("login", d)} />}
@@ -30,13 +27,7 @@ function App() {
           path="/discutionForm"
           element={<DiscutionForm onSubmit={(d) => console.log("discution", d)} />}
         />
-        <Route
-          path="/messageForm"
-          element={<MessageForm onSubmit={(d) => console.log("message", d)} />}
-        />
-      </Routes>
-      
-     <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }

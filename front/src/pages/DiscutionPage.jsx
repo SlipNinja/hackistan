@@ -5,7 +5,7 @@ import MessageForm from "../components/forms/MessageForm";
 import Aside from "../components/Aside";
 import { useState } from "react";
 
-export default function DiscussionPage(){
+export default function DiscutionPage(){
     const { id } = useParams();
     const [showAddPost, setShowAddPost] = useState(false);
  
