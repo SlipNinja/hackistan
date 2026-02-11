@@ -1,8 +1,13 @@
 import db from "../config/db.js";
 
 export default class Post {
-	static async getAllFromDiscussion(id_discussion) {
-		const sql = `SELECT * FROM posts WHERE id_discussion = ${id_discussion} AND status = 'accepted'`;
+	static async getAllFromDiscution(id_discution) {
+		const sql = `SELECT * FROM posts WHERE id_discution = ${id_discution} AND status = 'accepted'`;
+		return await db.execute(sql);
+	}
+
+	static async countFromDiscution(id_discution) {
+		const sql = `SELECT COUNT(*) FROM posts WHERE id_discution = ${id_discution} AND status = 'accepted'`;
 		return await db.execute(sql);
 	}
 
@@ -11,9 +16,9 @@ export default class Post {
 		return await db.execute(sql);
 	}
 
-	static async create(id_user, id_discussion, content, date_posted, status, id_anwsered_post = NULL) {
-		const sql = `INSERT INTO \`posts\` (\`content\`, \`date_posted\`, \`status\`, \`id_anwsered_post\`, \`id_discussion\`, \`id_user\`)
-                    VALUES ('${content}', '${date_posted}', '${status}', '${id_anwsered_post}', '${id_discussion}', '${id_user}')`;
+	static async create(id_user, id_discution, content, date_posted, status, id_anwsered_post = NULL) {
+		const sql = `INSERT INTO \`posts\` (\`content\`, \`date_posted\`, \`status\`, \`id_anwsered_post\`, \`id_discution\`, \`id_user\`)
+                    VALUES ('${content}', '${date_posted}', '${status}', '${id_anwsered_post}', '${id_discution}', '${id_user}')`;
 		return await db.execute(sql);
 	}
 
