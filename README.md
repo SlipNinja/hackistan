@@ -29,17 +29,37 @@ L'architecture est la suivante :
 
 v.1
 
-- GET localhost://3000/discussions
-- GET localhost://3000/discussion/:id/posts
+// Discution
+
+- GET localhost://3000/discutions
+- GET localhost://3000/discutions/:id
+- GET localhost://3000/discutions/count
+- POST localhost://3000/discutions //isUser
+
+// Post
+
+- GET localhost://3000/posts/pending
+- GET localhost://3000/posts/count/:id
+- GET localhost://3000/posts/discution/:id
+- POST localhost://3000/posts //isUser
+
+// Tag
+
 - GET localhost://3000/tags
-- GET localhost://3000/discussion/:id/tags
+- GET localhost://3000/tags/discution/:id
+- POST localhost://3000/tags
+
+// User
+
 - GET localhost://3000/users //isAdmin
+- GET localhost://3000/users/:id //isAdmin
 - GET localhost://3000/userProfile //isUser
+
+// Authentification
+
 - GET localhost://3000/verify
 - POST localhost://3000/login
 - POST localhost://3000/register
-- POST localhost://3000/post //isUser
-- POST localhost://3000/discussion //isUser
 
 ## Librairies/Dependencies
 
