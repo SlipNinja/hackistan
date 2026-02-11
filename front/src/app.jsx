@@ -1,11 +1,9 @@
-
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/Header"
 import Home from "./pages/home"
 import Footer from "./components/Footer"
 import "./styles/component/discussionForm.css";
 import "./styles/component/loginForm.css";
-
 import LoginForm from "./components/forms/LoginForm";
 import RegisterForm from "./components/forms/RegisterForm";
 import DiscutionForm from "./components/forms/DiscutionForm";
@@ -15,6 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+      <Routes>
         <Route path="/" element= {<Home/>}/>
         <Route path="/discution/:id" element={<DiscutionPage />} />
         <Route
@@ -29,6 +28,7 @@ function App() {
           path="/discutionForm"
           element={<DiscutionForm onSubmit={(d) => console.log("discution", d)} />}
         />
+      </Routes>
       <Footer />
     </BrowserRouter>
   );
