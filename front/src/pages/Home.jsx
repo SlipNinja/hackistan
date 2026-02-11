@@ -1,8 +1,8 @@
-import Aside from "./../component/Aside"
-import SearchBar from "../component/SearchBar"
-import DiscutionCards from"../component/DiscutionCards"
+import Aside from "../components/Aside"
+import SearchBar from "../components/SearchBar"
+import DiscutionCards from"../components/DiscutionCards"
 import "./../styles/pages/home.css"
-export default function (){
+export default function Home (){
 
 
     return(

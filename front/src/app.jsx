@@ -1,8 +1,8 @@
 
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Header from "./component/Header"
-import Home from "./pages/Home"
-import Footer from "./component/Footer"
+import Header from "./components/Header"
+import Home from "./pages/home"
+import Footer from "./components/Footer"
 
 import LoginForm from "./components/forms/LoginForm";
 import RegisterForm from "./components/forms/RegisterForm";
@@ -13,14 +13,9 @@ function App() {
   return (
     <BrowserRouter>
     <Header/>
-     
-      <nav>
-        <Link to="/login">Connexion</Link> |{" "}
-        <Link to="/register">Créer un compte</Link> |{" "}
-        <Link to="/discution">Nouvelle discution</Link>
-      </nav>
 
       <Routes>
+        <Route path="/" element= {<Home/>}/>
         <Route
           path="/login"
           element={<LoginForm onSubmit={(d) => console.log("login", d)} />}
@@ -30,14 +25,13 @@ function App() {
           element={<RegisterForm onSubmit={(d) => console.log("register", d)} />}
         />
         <Route
-          path="/discution"
+          path="/discutionForm"
           element={<DiscutionForm onSubmit={(d) => console.log("discution", d)} />}
         />
         <Route
-          path="/message"
+          path="/messageForm"
           element={<MessageForm onSubmit={(d) => console.log("message", d)} />}
         />
-        <Home/>
       </Routes>
       
      <Footer/>
