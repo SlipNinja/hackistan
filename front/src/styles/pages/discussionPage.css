@@ -3,13 +3,17 @@
     background: #6D307C80;
     border-radius: 15px;
     padding: 25px;
-    margin: 0px 95px 20px 20px;
+    margin: 0px 5px 20px 0px;
 }
 .contentPage {
     display: flex;
     gap: 30px;           
     align-items: flex-start;
     margin: 80px 0px 0px 32px;
+}
+
+.divPosts {
+    width: 80%;
 }
 
 .discutionTitle {

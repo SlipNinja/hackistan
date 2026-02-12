@@ -2,7 +2,7 @@
 
 ## Description
 
-Hackistan est un projet réalisé durant le Hackathon organisé par l'AFEC du 9 février au 13 février 2026 par Doriane, David, Maxime (et Pyerre parce qu'il sait pas écrire son prénom).
+Hackistan est un projet réalisé durant le Hackathon organisé par l'AFEC du 9 février au 13 février 2026 par Doriane, David, Maxime, Cassandra (et Pyerre parce qu'il sait pas écrire son prénom).
 
 Le projet consiste en un forum où les utilisateurs peuvent discuter de sujets construit sur une API REST.
 
@@ -70,9 +70,12 @@ v.1
 - express
 - mysql2
 - jsonwebtoken
+- jwt-decode
 - nodemailler
+- obscenity
 
 ### Dépendances front-end
 
 - axios
 - react-icon
+- js-cookie

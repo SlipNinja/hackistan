@@ -1,4 +1,5 @@
-
+import { AuthProvider } from "./context/AuthContext";
+import PrivateRoute from "./routes/PrivateRoute"
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/Header"
 import Home from "./pages/home"
@@ -8,19 +9,28 @@ import RegisterForm from "./components/forms/RegisterForm";
 import DiscutionForm from "./components/forms/DiscutionForm";
 import DiscutionPage from "./pages/DiscutionPage";
 import "./../src/styles/index.css"
+import api from "./api/axios"
 
 function App() {
   return (
+    <AuthProvider>
     <BrowserRouter>
       <Header />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/discution/:id" element={<DiscutionPage />} />
-
         <Route
           path="/login"
-          element={<LoginForm onSubmit={(d) => console.log("login", d)} />}
+          element={<LoginForm onSubmit={async (d) => {
+                const {email, password}=d
+                const body={
+                  email:email,
+                  password:password
+                }
+                const response=await api.post("/auth/login", body)
+                console.log(response.data)
+          }}
+          />}
         />
         <Route
           path="/register"
@@ -28,13 +38,14 @@ function App() {
         />
         <Route
           path="/discutionForm"
-          element={<DiscutionForm onSubmit={(d) => console.log("discution", d)} />}
+          element={<PrivateRoute><DiscutionForm onSubmit={(d) => console.log("discution", d)} /></PrivateRoute>}
         />
       </Routes>
 
       <Footer />
     </BrowserRouter>
+    </AuthProvider>
+
   );
 }
-
 export default App;

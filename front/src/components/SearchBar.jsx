@@ -1,8 +1,11 @@
 import "./../styles/component/searchBar.css";
 import { FaSearch } from "react-icons/fa"; 
 
+
 export default function SearchBar({ value, onChange }) {
+
   return (
+    <>
     <div className="searchBar">
       <FaSearch className="searchIcon" />
       <input
@@ -12,5 +15,7 @@ export default function SearchBar({ value, onChange }) {
         onChange={onChange}
       />
     </div>
+      
+      </>
   );
 }

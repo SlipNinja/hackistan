@@ -40,7 +40,7 @@ function LoginForm({ onSubmit }) {
                 />
             </div>
             <div className="loginButton">
-            <Button text="Se connecter"/>
+            <Button text="Se connecter" onClick={handleSubmit}/>
             </div>
         </form>
         </div>
