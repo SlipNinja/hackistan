@@ -41,16 +41,18 @@ export default function DiscutionCards() {
           <div key={discussion.id_discution} className="discutionCard">
             <Link to={`/discution/${discussion.id_discution}`} key={discussion.id_discution}  >
             <h3>{discussion.title}</h3>
-            <p>{discussion.description}</p>
+            <p className="descriptionPost">{discussion.description}</p>
 
             <div className="discutionLoop">
-              <span>{discussion.username}</span>
-              <span>•</span>
-              <span>{discussion.last_modified}</span>
+              <img className="imgProfil" src={`https://i.pravatar.cc/20${discussion.id_discution}`}></img>
+              <div>
+                <span className="marginPara"><strong>{discussion.username}</strong></span>
+                <span>•</span>
+                <span className="marginPara">{new Date(discussion.last_modified).toLocaleDateString('fr-FR', {year: 'numeric', month: 'numeric', day: 'numeric', })}</span>
+              </div>
               <span className="postCount"><FaMessage /> {discussion["count"]}</span>
             </div>
           </Link>
-
           </div>
         );
       })}
