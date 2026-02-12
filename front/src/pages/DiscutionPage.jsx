@@ -1,14 +1,17 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import "./../styles/pages/discussionPage.css"
 import Button from "../components/Button";
 import MessageForm from "../components/forms/MessageForm";
 import Aside from "../components/Aside";
 import { useState, useEffect } from "react";
 import api from "./../api/axios"
+import { useAuth } from "./../hook/useAuth";
 
 
 export default function DiscutionPage() {
+  let navigate =useNavigate()
   const { id } = useParams();
+  const { user } = useAuth();
   const [showAddPost, setShowAddPost] = useState(false);
   const [discutions, setDiscutions] = useState([{
     title:"",
@@ -72,7 +75,14 @@ export default function DiscutionPage() {
 
         <div className="divAddComments">
             {!showAddPost && (
-                <Button text="Ajouter un commentaire" onClick={() => setShowAddPost(true)} />
+                <Button text="Ajouter un commentaire" onClick={() => {
+                  if(user){
+                    setShowAddPost(true)
+                  }else{
+                    navigate("/login")
+
+                  }
+                }} />
             )}
         </div>
 
@@ -95,7 +105,8 @@ export default function DiscutionPage() {
             );
           })}
           </div>
-            {showAddPost && (
+
+            {showAddPost && user && (
               <MessageForm onSubmit={handleSubmitPost} />
             )}
         </div>

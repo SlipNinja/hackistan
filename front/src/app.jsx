@@ -1,4 +1,4 @@
-import { AuthProvider } from "./context/AuthContext";
+
 import PrivateRoute from "./routes/PrivateRoute"
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Header from "./components/Header"
@@ -11,13 +11,26 @@ import DiscutionPage from "./pages/DiscutionPage";
 import "./../src/styles/index.css"
 import api from "./api/axios"
 import Cookies from "js-cookie"
+import { useAuth } from "./hook/useAuth";
+import MessageForm from "./components/forms/MessageForm";
 
 function App() {
+   const { user } = useAuth();
+
   return (
-    <AuthProvider>
     <BrowserRouter>
       <Header />
       <Routes>
+        {user && (
+          <>
+        <Route element={<PrivateRoute />}>
+         <Route
+          path="/discutionForm"
+          element={<DiscutionForm onSubmit={(d) => console.log("discution", d)} />}
+        /><Route
+          path="/MessageForm"
+          element={<MessageForm onSubmit={(d) => console.log("discution", d)} />}
+        />
         <Route path="/" element={<Home />} />
         <Route path="/discution/:id" element={<DiscutionPage />} />
         <Route
@@ -38,15 +51,38 @@ function App() {
           path="/register"
           element={<RegisterForm onSubmit={(d) => console.log("register", d)} />}
         />
+        
+        </Route>
+        </>
+        )}
+        {!user && (
+          <>
+        <Route path="/" element={<Home />} />
+        <Route path="/discution/:id" element={<DiscutionPage />} />
         <Route
-          path="/discutionForm"
-          element={<PrivateRoute><DiscutionForm onSubmit={(d) => console.log("discution", d)} /></PrivateRoute>}
+          path="/login"
+          element={<LoginForm onSubmit={async (d) => {
+                const {email, password}=d
+                const body={
+                  email:email,
+                  password:password
+                }
+                const response=await api.post("/auth/login", body)
+                console.log(response.data)
+                  Cookies.set("token", response.data.token, { expires: 1 });    
+          }}
+          />}
         />
-      </Routes>
-
+        <Route
+          path="/register"
+          element={<RegisterForm onSubmit={(d) => console.log("register", d)} />}
+        />
+      </>
+          )}
+          </Routes>
       <Footer />
     </BrowserRouter>
-    </AuthProvider>
+   
 
   );
 }
