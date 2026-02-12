@@ -63,3 +63,14 @@
 .title {
     color: red;
 }
+
+.noFoundDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noFound {
+    margin: 0% 0% 2% 0%;
+}

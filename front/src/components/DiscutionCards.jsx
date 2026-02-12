@@ -2,6 +2,7 @@ import "./../styles/component/discutionCards.css";
 import { FaMessage } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
+import Button from "../components/Button";
 import api from "./../api/axios"
 import SearchBar from "./SearchBar";
 
@@ -48,9 +49,7 @@ export default function DiscutionCards({ search }) {
               <h3>{discussion.title}</h3>
               <p className="descriptionPost">{discussion.description}</p>
               <div className="discutionLoop">
-                <img
-                  className="imgProfil"
-                  src={`https://i.pravatar.cc/20${discussion.id_discution}`}
+                <img className="imgProfil" src={`https://i.pravatar.cc/20${discussion.id_discution}`}
                 />
                 <div>
                   <span className="marginPara">
@@ -73,7 +72,10 @@ export default function DiscutionCards({ search }) {
           </div>
         ))
       ) : (
-        <p>Aucune discussion trouvée</p>
+        <div className="noFoundDiv">
+          <p className="noFound">Aucune discussion trouvée</p>
+          <Button text="Ajoute ton post" />
+        </div>
       )}
     </div>
   );

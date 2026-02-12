@@ -59,7 +59,7 @@ export default function DiscutionPage() {
           <Link to="/"><p className="returnPosts">← Retourner aux posts</p></Link>
           <h2>{discutions[0].title}</h2>
           <div className="profilDiv">
-            <img className="imgProfil" src="https://i.pravatar.cc/200"></img>
+            <img className="imgProfil" src={`https://i.pravatar.cc/20${discutions[0].id_discution}`}/>
             <div className="column">
               <span className="username"><strong>{discutions[0].username}</strong></span>
               <span className="date">Modifié le {new Date(discutions[0].last_modified).toLocaleDateString('fr-FR', {year: 'numeric', month: 'numeric', day: 'numeric', })}</span>
@@ -82,7 +82,7 @@ export default function DiscutionPage() {
               <div>
                 <div key={post.id_post} className="reply" >
                   <div className="profilDiv">
-                      <img className="imgProfil" src="https://i.pravatar.cc/150"></img>
+                      <img className="imgProfil" src={`https://i.pravatar.cc/20${post.id_user}`}></img>
                     <div className="column">
                       <span className="postUserName">{post.username}</span>
                       <span className="date">{new Date(post.date_posted).toLocaleDateString('fr-FR', {year: 'numeric', month: 'numeric', day: 'numeric', })}</span>
