@@ -3,6 +3,8 @@ import { FaMessage } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import api from "./../api/axios"
+import Button from "./Button";
+
 export default function DiscutionCards() {
 
   const [discutions, setDiscutions] = useState([]);
@@ -11,7 +13,6 @@ export default function DiscutionCards() {
   useEffect(() => {
       loadData()
   }, []);
-
      async function loadData(){
         async function fetchDiscutions() {
       try {
@@ -32,8 +33,10 @@ export default function DiscutionCards() {
 
   return (
     <div className="discutionContainer">
+      <div className="discussionBar">
       <h2 className="discutionTitle">Dernières discussions</h2>
-
+      <Link to="/discutionForm"><Button  text="Ajouter une discussion"/></Link>
+      </div>
       {discutions.map((discussion) => {
 
         return (

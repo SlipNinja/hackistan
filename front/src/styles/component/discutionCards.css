@@ -46,3 +46,9 @@
     font-weight: bold;
     color: #EB58BE; 
 }
+
+.discussionBar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}

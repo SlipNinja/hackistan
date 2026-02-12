@@ -14,6 +14,7 @@ export default function DiscutionPage() {
     title:"",
     description:""
   }]);
+  
   const [posts, setPosts] = useState([]);
   console.log(discutions)
   useEffect(() => {
@@ -33,7 +34,7 @@ export default function DiscutionPage() {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const response = await api.get(`http://localhost:3000/posts/discution/${id}`);
+        const response = await api.get(`/posts/discution/${id}`);
         setPosts(response.data);
         console.log(response.data)
       } catch (err) {

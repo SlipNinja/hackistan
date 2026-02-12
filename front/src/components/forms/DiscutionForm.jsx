@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./../../styles/component/discutionForm.css"
 
 function DiscutionForm({ onSubmit }) {
     const [title, setTitle] = useState("");
