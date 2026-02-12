@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import argon2 from "argon2";
 
 export async function getUsers(req, res) {
 	const results = await User.getAll();
@@ -13,6 +14,8 @@ export async function getUserById(req, res) {
 
 export async function createUser(req, res) {
 	const { username, email, password, role } = req.body;
-	const results = await User.create(username, email, password, role);
+
+	const hashed = await argon2.hash(password);
+	const results = await User.create(username, email, hashed, role);
 	res.status(204).json(results[0]);
 }
