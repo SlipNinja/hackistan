@@ -8,12 +8,12 @@ import cors from "cors";
 import "dotenv/config";
 
 const app = express();
-const whiteList = ["http://localhost:5173"];
+
 app.use(
-  cors({
-    origin: whiteList,
-    credentials: true,
-  }),
+	cors({
+		origin: process.env.WHITE_LIST,
+		credentials: true,
+	}),
 );
 app.use(express.json());
 app.use("/users", user_router);
