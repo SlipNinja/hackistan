@@ -1,15 +1,15 @@
 .discutionPage {
-    flex: 1;             
-    margin: 40px 0;       
+    flex: 1;                   
     background: #6D307C80;
     border-radius: 15px;
     padding: 25px;
+    margin: 0px 95px 20px 20px;
 }
 .contentPage {
     display: flex;
     gap: 30px;           
     align-items: flex-start;
-    padding: 20px;
+    margin: 80px 0px 0px 32px;
 }
 
 .discutionTitle {
@@ -48,7 +48,6 @@
     border-radius: 15px;
     padding: 15px;
     color: white;
-    margin-top: 40px
 }
 
 .returnPosts {
@@ -84,7 +83,6 @@
 
 .divAddComments {
     margin: 3% 0% 3% 5%;
-    width: 15%;
 }
 
 .postsContainer {

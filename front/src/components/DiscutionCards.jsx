@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Button from "../components/Button";
 import api from "./../api/axios"
-import SearchBar from "./SearchBar";
 
 export default function DiscutionCards({ search }) {
   const [discutions, setDiscutions] = useState([]);
