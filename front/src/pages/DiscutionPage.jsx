@@ -57,10 +57,11 @@ export default function DiscutionPage() {
     
     <div className="contentPage">
       <Aside className="aside" />
+      <div className="divPosts">
+        <Link to="/"><p className="returnPosts">← Retourner aux posts</p></Link>
       <div className="discutionPage">
         {discutions && (
         <div className="discutionTitle">
-          <Link to="/"><p className="returnPosts">← Retourner aux posts</p></Link>
           <h2>{discutions[0].title}</h2>
           <div className="profilDiv">
             <img className="imgProfil" src={`https://i.pravatar.cc/20${discutions[0].id_discution}`}/>
@@ -72,6 +73,7 @@ export default function DiscutionPage() {
           <p className="descriptionPara">{discutions[0].description}</p>
         </div>
         )}
+     
 
         <div className="divAddComments">
             {!showAddPost && (
@@ -111,5 +113,6 @@ export default function DiscutionPage() {
             )}
         </div>
       </div>
+    </div>
   )
 }

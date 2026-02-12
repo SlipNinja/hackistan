@@ -81,4 +81,10 @@
 .noFound {
     margin: 0% 0% 2% 0%;
 }
->>>>>>> 8bebf82a48d2a578f9e5dd4794c063243741f1dd
+
+.divRow {
+    display: flex;
+    width: 97%;
+    justify-content: space-between;
+    align-items: center;
+}

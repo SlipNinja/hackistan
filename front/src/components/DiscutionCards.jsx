@@ -5,7 +5,6 @@ import { useState,useEffect } from "react";
 import Button from "../components/Button";
 import api from "./../api/axios"
 
-
 export default function DiscutionCards({ search }) {
   const [discutions, setDiscutions] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -41,7 +40,12 @@ export default function DiscutionCards({ search }) {
 
   return (
     <div className="discutionContainer">
-      <h2 className="discutionTitle">Dernières discussions</h2>
+      <div className="divRow">
+        <h2 className="discutionTitle">Dernières discussions</h2>
+        <div>
+          <Button text="Ajoute ton post" />
+        </div>
+      </div>
       {filteredPosts.length > 0 ? (
         filteredPosts.map((discussion) => (
           <div key={discussion.id_discution} className="discutionCard">
