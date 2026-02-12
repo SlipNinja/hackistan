@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import MessageForm from "../components/forms/MessageForm";
 import Aside from "../components/Aside";
 import { useState, useEffect } from "react";
+import api from "./../api/axios"
 
 
 export default function DiscutionPage() {
@@ -18,11 +19,9 @@ export default function DiscutionPage() {
   useEffect(() => {
     async function fetchDiscutionsbyId() {
       try {
-
-        const response = await fetch(`http://localhost:3000/discutions/${id}`);
-        const data = await response.json();
-        setDiscutions(data);
-        console.log(data)
+        const response = await api.get(`/discutions/${id}`);
+        setDiscutions(response.data);
+        console.log(response.data)
       
       } catch (err) {
         console.log(err);
@@ -34,10 +33,9 @@ export default function DiscutionPage() {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const response = await fetch(`http://localhost:3000/posts/discution/${id}`);
-        const data = await response.json();
-        setPosts(data);
-        console.log(data)
+        const response = await api.get(`http://localhost:3000/posts/discution/${id}`);
+        setPosts(response.data);
+        console.log(response.data)
       } catch (err) {
         console.log(err);
       }

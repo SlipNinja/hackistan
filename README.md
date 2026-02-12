@@ -38,7 +38,7 @@ v.1
 
 // Post
 
-- GET localhost://3000/posts/pending
+- GET localhost://3000/posts/pending //isAdmin
 - GET localhost://3000/posts/count/:id
 - GET localhost://3000/posts/discution/:id
 - POST localhost://3000/posts //isUser
@@ -47,7 +47,7 @@ v.1
 
 - GET localhost://3000/tags
 - GET localhost://3000/tags/discution/:id
-- POST localhost://3000/tags
+- POST localhost://3000/tags //isAdmin
 
 // User
 
