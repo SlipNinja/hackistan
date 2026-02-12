@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "./../../styles/component/messageForm.css"
+import Button from "../Button";
 
 function MessageForm({ onSubmit }) {
     const [message, setMessage] = useState("");
@@ -22,10 +24,9 @@ function MessageForm({ onSubmit }) {
                     required
                 />
             </div>
-
-            <button type="submit" className="formButton">
-                Envoyer
-            </button>
+            <div className="postButton">
+            <Button text="Envoyer"/>
+            </div>
         </form>
     );
 }

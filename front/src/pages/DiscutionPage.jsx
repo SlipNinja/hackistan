@@ -9,10 +9,12 @@ import { useState, useEffect } from "react";
 export default function DiscutionPage() {
   const { id } = useParams();
   const [showAddPost, setShowAddPost] = useState(false);
-
-  const [discutions, setDiscutions] = useState([]);
+  const [discutions, setDiscutions] = useState([{
+    title:"",
+    description:""
+  }]);
   const [posts, setPosts] = useState([]);
-
+  console.log(discutions)
   useEffect(() => {
     async function fetchDiscutionsbyId() {
       try {
@@ -21,13 +23,13 @@ export default function DiscutionPage() {
         const data = await response.json();
         setDiscutions(data);
         console.log(data)
-        console.log(discutions[0].title)
+      
       } catch (err) {
         console.log(err);
       }
     }
     fetchDiscutionsbyId();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     async function fetchPosts() {
@@ -41,8 +43,8 @@ export default function DiscutionPage() {
       }
     }
     fetchPosts();
-  }, []);
-
+  }, [id]);
+    
 
   const handleSubmitPost = (data) => {
     setShowAddPost(false)
@@ -52,11 +54,12 @@ export default function DiscutionPage() {
     <div className="contentPage">
       <Aside className="aside" />
       <div className="discutionPage">
-
+        {discutions && (
         <div className="discutionTitle">
           <h2>{discutions[0].title}</h2>
           <p>{discutions[0].description}</p>
         </div>
+        )}
 
         <hr />
 
@@ -81,32 +84,11 @@ export default function DiscutionPage() {
             </div>
           )}
           <hr />
-
-          <div className="postsContainer">
-            {posts.map((post) => {
-              return (
-                <div>
-                  <div key={post.id_post} className="reply" >
-                    <p>{post.content}</p>
-                    <div className="postName">
-                      <span className="postUserName">{user?.username}</span>
-                      <span>{post.date_posted}</span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-            {!showAddPost && (
-              <div className="buttonAddPost">
-                <Button text="Ajouter un post" onClick={() => setShowAddPost(true)} />
-              </div>
-            )}
             {showAddPost && (
               <MessageForm onSubmit={handleSubmitPost} />
             )}
           </div>
         </div>
       </div>
-    </div>
   )
 }
