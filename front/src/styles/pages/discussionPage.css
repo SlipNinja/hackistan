@@ -26,7 +26,6 @@
 
 .reply {
     margin-left: 3rem;
-    
 }
 
 .postName {
@@ -38,6 +37,7 @@
 .postUserName {
     font-weight: bold;
 }
+
 .buttonAddPost {
     display: flex;
     justify-content: flex-end;
@@ -49,4 +49,56 @@
     padding: 15px;
     color: white;
     margin-top: 40px
+}
+
+.returnPosts {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.473)
+}
+
+.imgProfil {
+    border-radius: 40px;
+    width: 3%;
+}
+
+.profilDiv {
+    margin-top: 3%;
+    display: flex;
+    align-items: center;
+}
+
+.descriptionPara {
+    margin-left : 4%;
+}
+
+.date {
+    font-size: 13px;
+    color: grey;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+}
+
+.divAddComments {
+    margin: 3% 0% 3% 5%;
+    width: 15%;
+}
+
+.postsContainer {
+    margin: 30px 10px 0px 35px;
+}
+
+.postComment {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.inputComment {
+    width: 100%;
+    height: 80px;
+    background: #6d307c67;
+    border: none;
 }

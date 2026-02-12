@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 96%;
 }
 
 .discutionTitle {
@@ -17,7 +18,13 @@
     padding: 12px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
+    margin-right: 3%;
 }
+
+.marginPara {
+    margin: 0% 5% 0% 5%;
+}
+
 .discutionCard, a{
     text-decoration:none;
     color : white
@@ -30,8 +37,13 @@
 
 .discutionCard h3 {
     margin: 0;
-    color: white;
-    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    margin-left: 2%;
+}
+
+.descriptionPost {
+    margin: 2% 0% 2% 4%;
 }
 
 .discutionLoop{
@@ -40,6 +52,7 @@
     margin-top: 5px;
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.7);
+    align-items: center;
 }
 .postCount {
     margin-left: auto; 
@@ -47,8 +60,25 @@
     color: #EB58BE; 
 }
 
+<<<<<<< HEAD
 .discussionBar {
     display:flex;
     justify-content: space-between;
     align-items: center;
 }
+=======
+.title {
+    color: red;
+}
+
+.noFoundDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noFound {
+    margin: 0% 0% 2% 0%;
+}
+>>>>>>> 8bebf82a48d2a578f9e5dd4794c063243741f1dd
