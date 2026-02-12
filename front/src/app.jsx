@@ -10,6 +10,7 @@ import DiscutionForm from "./components/forms/DiscutionForm";
 import DiscutionPage from "./pages/DiscutionPage";
 import "./../src/styles/index.css"
 import api from "./api/axios"
+import Cookies from "js-cookie"
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
                 }
                 const response=await api.post("/auth/login", body)
                 console.log(response.data)
+                  Cookies.set("token", response.data.token, { expires: 1 });    
           }}
           />}
         />

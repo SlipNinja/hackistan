@@ -26,17 +26,13 @@ export const AuthProvider = ({ children }) => {
   setLoading(false);
 }, []); 
 
-  const login = (token) => {
-    Cookies.set("token", token, { expires: "2h" });
-    setUser(jwtDecode(token));
-  };
- 
+
   const logout = () => {
   Cookies.remove("token");
   setUser(null);
 };
   return (
-    <AuthContext.Provider value={{ user, setUser, logout, login, loading }}>
+    <AuthContext.Provider value={{ user, setUser, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );
