@@ -11,7 +11,7 @@ function MessageForm({ onSubmit }) {
         onSubmit({ message });
         setMessage("");
     };
-    console.log("ok")
+    
     return (
         <form className="form messageForm" onSubmit={handleSubmit}>
             <div className="formGroup">
