@@ -19,7 +19,6 @@ export default function DiscutionPage() {
   useEffect(() => {
     async function fetchDiscutionsbyId() {
       try {
-
         const response = await api.get(`/discutions/${id}`);
         setDiscutions(response.data);
         console.log(response.data)
