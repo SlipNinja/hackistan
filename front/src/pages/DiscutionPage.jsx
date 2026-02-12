@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./../styles/pages/discussionPage.css"
 import Button from "../components/Button";
 import MessageForm from "../components/forms/MessageForm";
@@ -44,6 +44,7 @@ export default function DiscutionPage() {
     }
     fetchPosts();
   }, [id]);
+
     
 
   const handleSubmitPost = (data) => {
@@ -51,43 +52,53 @@ export default function DiscutionPage() {
   };
   return (
 
+    
     <div className="contentPage">
       <Aside className="aside" />
       <div className="discutionPage">
         {discutions && (
         <div className="discutionTitle">
+          <Link to="/"><p className="returnPosts">← Retourner aux posts</p></Link>
           <h2>{discutions[0].title}</h2>
-          <p>{discutions[0].description}</p>
+          <div className="profilDiv">
+            <img className="imgProfil" src="https://i.pravatar.cc/200"></img>
+            <div className="column">
+              <span className="username"><strong>{discutions[0].username}</strong></span>
+              <span className="date">Modifié le {new Date(discutions[0].last_modified).toLocaleDateString('fr-FR', {year: 'numeric', month: 'numeric', day: 'numeric', })}</span>
+            </div>
+          </div>
+          <p className="descriptionPara">{discutions[0].description}</p>
         </div>
         )}
 
-        <hr />
+        <div className="divAddComments">
+            {!showAddPost && (
+                <Button text="Ajouter un commentaire" onClick={() => setShowAddPost(true)} />
+            )}
+        </div>
+
 
         <div className="postsContainer">
           {posts.map((post) => {
             return (
               <div>
                 <div key={post.id_post} className="reply" >
-                  <p>{post.content}</p>
-                  <div className="postName">
-                    <span className="postUserName">{post.username}</span>
-                    <span>{post.date_posted}</span>
+                  <div className="profilDiv">
+                      <img className="imgProfil" src="https://i.pravatar.cc/150"></img>
+                    <div className="column">
+                      <span className="postUserName">{post.username}</span>
+                      <span className="date">{new Date(post.date_posted).toLocaleDateString('fr-FR', {year: 'numeric', month: 'numeric', day: 'numeric', })}</span>
+                    </div>
                   </div>
+                  <p className="descriptionPara">{post.content}</p>
                 </div>
               </div>
             );
           })}
-          {!showAddPost && (
-            <div className="buttonAddPost">
-              <Button text="Ajouter un post" onClick={() => setShowAddPost(true)} />
-
-            </div>
-          )}
-          <hr />
+          </div>
             {showAddPost && (
               <MessageForm onSubmit={handleSubmitPost} />
             )}
-          </div>
         </div>
       </div>
   )
