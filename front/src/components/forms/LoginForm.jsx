@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./../../styles/component/loginForm.css"
+import Button from "../Button";
 
 function LoginForm({ onSubmit }) {
     const [email, setEmail] = useState("");
@@ -38,10 +39,9 @@ function LoginForm({ onSubmit }) {
                     required
                 />
             </div>
-
-            <button type="submit" className="formButton">
-                Se connecter
-            </button>
+            <div className="loginButton">
+            <Button text="Se connecter"/>
+            </div>
         </form>
         </div>
     );
