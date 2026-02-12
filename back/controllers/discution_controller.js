@@ -17,7 +17,7 @@ export async function getDiscutionByID(req, res) {
 }
 
 export async function createDiscution(req, res) {
-	const { title, description, id_user } = req.body;
-	const results = await Discution.create(title, description, id_user);
+	const { title, content, id_user } = req.body;
+	const results = await Discution.create(title, content, id_user);
 	res.status(200).json(results[0]);
 }
