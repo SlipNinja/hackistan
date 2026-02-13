@@ -20,3 +20,23 @@ export async function login(req, res) {
 
   return res.status(200).json(result);
 }
+
+export async function register(req, res) {
+  try {
+    console.log("BODY RECU :", req.body);
+    const { username, email, password } = req.body;
+    const hash = await argon2.hash(password);
+    const result = await User.create(
+      username,
+      email,
+      hash,
+      "user"
+    );
+
+    return res.status(200).json(result);
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Erreur serveur" });
+  }
+}

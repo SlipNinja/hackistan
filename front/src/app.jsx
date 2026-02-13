@@ -36,7 +36,20 @@ function App() {
         />
         <Route
           path="/register"
-          element={<RegisterForm onSubmit={(d) => console.log("register", d)} />}
+          element={
+            <RegisterForm onSubmit={async (d) => {
+              const {username, email, password}=d
+              const body={
+                username:username,
+                email:email,
+                password:password,
+                role: "user"
+              }
+              const response=await api.post("/auth/register", body)
+              console.log(response.data)
+            }}
+            />
+          }
         />
         <Route
           path="/discutionForm"

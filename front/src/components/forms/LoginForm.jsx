@@ -42,6 +42,10 @@ function LoginForm({ onSubmit }) {
             <div className="loginButton">
             <Button text="Se connecter" onClick={handleSubmit}/>
             </div>
+            <div className="registerLink">
+                <span>Pas encore de compte ?</span>
+                <a href="/register">Inscrivez-vous</a>
+            </div>
         </form>
         </div>
     );

@@ -15,7 +15,7 @@ function MessageForm({ onSubmit }) {
     return (
         <form className="form messageForm" onSubmit={handleSubmit}>
             <div className="formGroup">
-                <label htmlFor="messageContent" className="formLabel">Réponse</label>
+                <label htmlFor="messageContent" className="formLabel">Écrivez votre commentaire</label>
                 <textarea
                     id="messageContent"
                     className="formTextarea"
@@ -25,7 +25,7 @@ function MessageForm({ onSubmit }) {
                 />
             </div>
             <div className="postButton">
-            <Button text="Envoyer"/>
+            <Button text="Envoyer" />
             </div>
         </form>
     );
