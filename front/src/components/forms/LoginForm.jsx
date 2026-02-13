@@ -1,14 +1,17 @@
 import { useState } from "react";
 import "./../../styles/component/loginForm.css"
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm({ onSubmit }) {
+    let navigate=useNavigate()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit({ email, password });
+        navigate ("/")
     };
 
     return (

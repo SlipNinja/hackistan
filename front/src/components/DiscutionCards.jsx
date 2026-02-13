@@ -43,7 +43,7 @@ export default function DiscutionCards({ search }) {
       <div className="divRow">
         <h2 className="discutionTitle">Dernières discussions</h2>
         <div>
-          <Button text="Ajoute ton post" />
+          <Button text="Ajouter une discussion" />
         </div>
       </div>
       {filteredPosts.length > 0 ? (

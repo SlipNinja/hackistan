@@ -12,6 +12,7 @@ function MessageForm({ onSubmit }) {
         setMessage("");
     };
     
+    
     return (
         <form className="form messageForm" onSubmit={handleSubmit}>
             <div className="formGroup">
@@ -25,7 +26,7 @@ function MessageForm({ onSubmit }) {
                 />
             </div>
             <div className="postButton">
-            <Button text="Envoyer"/>
+            <Button text="Envoyer" type="submit"/>
             </div>
         </form>
     );
