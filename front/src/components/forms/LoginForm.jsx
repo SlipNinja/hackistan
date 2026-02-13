@@ -7,11 +7,16 @@ function LoginForm({ onSubmit }) {
     let navigate=useNavigate()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        onSubmit({ email, password });
-        navigate ("/")
+        const success = await onSubmit({ email, password });
+        if (success) {
+            navigate("/");
+        } else {
+            setError("Email ou mot de passe incorrect");
+        }
     };
 
     return (
@@ -42,6 +47,8 @@ function LoginForm({ onSubmit }) {
                     required
                 />
             </div>
+            {error && <div className="errorMessage">{error}</div>}
+            
             <div className="loginButton">
             <Button text="Se connecter" onClick={handleSubmit}/>
             </div>

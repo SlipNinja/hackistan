@@ -26,11 +26,7 @@ function MessageForm({ onSubmit }) {
                 />
             </div>
             <div className="postButton">
-<<<<<<< HEAD
             <Button text="Envoyer" />
-=======
-            <Button text="Envoyer" type="submit"/>
->>>>>>> 742f3bcddf7d44f55e708487e08b60caf831d2c3
             </div>
         </form>
     );

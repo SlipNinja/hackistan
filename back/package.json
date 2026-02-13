@@ -13,11 +13,8 @@
 	},
 	"dependencies": {
 		"argon2": "^0.44.0",
-<<<<<<< HEAD
 		"axios": "^1.13.5",
-=======
 		"cookie-parser": "^1.4.7",
->>>>>>> 742f3bcddf7d44f55e708487e08b60caf831d2c3
 		"cors": "^2.8.6",
 		"dotenv": "^17.2.4",
 		"express": "^5.2.1",
