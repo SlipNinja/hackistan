@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
   const token = Cookies.get("token");
-
+    console.log(token)
   if (token) {
     try {
       setUser(jwtDecode(token));
@@ -26,13 +26,15 @@ export const AuthProvider = ({ children }) => {
   setLoading(false);
 }, []); 
 
-
+  
+ 
   const logout = () => {
   Cookies.remove("token");
   setUser(null);
 };
+
   return (
-    <AuthContext.Provider value={{ user, setUser, logout, loading }}>
+    <AuthContext.Provider value={{ user, setUser, logout,  loading }}>
       {children}
     </AuthContext.Provider>
   );

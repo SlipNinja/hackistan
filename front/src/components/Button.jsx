@@ -1,12 +1,12 @@
 import "./../styles/component/button.css";
 
-export default function Button({text, onClick }){
+export default function Button({text, onClick, type = "button"}){
 
     return(
         <>
-        <div className="button"  onClick={onClick}>
+        <button className="button" type={type}  onClick={onClick}>
             <span>{text}</span>
-        </div>
+        </button>
         </>
     )
 }

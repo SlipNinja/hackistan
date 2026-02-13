@@ -5,6 +5,7 @@ import post_router from "./routes/post_routes.js";
 import tag_router from "./routes/tag_routes.js";
 import auth_router from "./routes/auth_routes.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import "dotenv/config";
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(
 		credentials: true,
 	}),
 );
+app.use(cookieParser());
 app.use(express.json());
 app.use("/users", user_router);
 app.use("/discutions", discution_router);

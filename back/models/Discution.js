@@ -19,7 +19,7 @@ export default class Discution {
 
 	static async create(title, description, id_user) {
 		const sql = `INSERT INTO \`discutions\` (\`title\`, \`description\`, \`id_user\`, \`last_modified\`)
-                    VALUES ('${title}', ${description}, ${id_user} NOW())`;
+                    VALUES ('${title}', '${description}', ${id_user}, NOW())`;
 		return await db.execute(sql);
 	}
 
