@@ -11,11 +11,12 @@ import DiscutionPage from "./pages/DiscutionPage";
 import "./../src/styles/index.css"
 import api from "./api/axios"
 import Cookies from "js-cookie"
-import { useAuth } from "./hook/useAuth";
 import MessageForm from "./components/forms/MessageForm";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext"
 
 function App() {
-   const { user } = useAuth();
+   const { user } = useContext(AuthContext);
 
   return (
     <BrowserRouter>
@@ -35,18 +36,14 @@ function App() {
         <Route path="/discution/:id" element={<DiscutionPage />} />
         <Route
           path="/login"
-          element={<LoginForm onSubmit={async (d) => {
-                const {email, password}=d
-                const body={
-                  email:email,
-                  password:password
-                }
-                const response=await api.post("/auth/login", body)
-                console.log(response.data)
-                  Cookies.set("token", response.data.token, { expires: 1 });    
-          }}
-          />}
-        />
+          element={<LoginForm onSubmit= {async ({ email, password }) => {
+                try {
+                  await login(email, password);
+                } catch (err) {
+                  console.error(err);
+                }}}/>
+          }/>
+      
         <Route
           path="/register"
           element={<RegisterForm onSubmit={(d) => console.log("register", d)} />}
