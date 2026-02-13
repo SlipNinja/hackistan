@@ -12,10 +12,11 @@ function MessageForm({ onSubmit }) {
         setMessage("");
     };
     
+    
     return (
         <form className="form messageForm" onSubmit={handleSubmit}>
             <div className="formGroup">
-                <label htmlFor="messageContent" className="formLabel">Réponse</label>
+                <label htmlFor="messageContent" className="formLabel">Écrivez votre commentaire</label>
                 <textarea
                     id="messageContent"
                     className="formTextarea"
@@ -25,7 +26,11 @@ function MessageForm({ onSubmit }) {
                 />
             </div>
             <div className="postButton">
-            <Button text="Envoyer"/>
+<<<<<<< HEAD
+            <Button text="Envoyer" />
+=======
+            <Button text="Envoyer" type="submit"/>
+>>>>>>> 742f3bcddf7d44f55e708487e08b60caf831d2c3
             </div>
         </form>
     );

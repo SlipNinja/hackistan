@@ -49,9 +49,29 @@ export default function DiscutionPage() {
 
     
 
-  const handleSubmitPost = (data) => {
-    setShowAddPost(false)
-  };
+  const handleSubmitPost = async (data) => {
+    console.log ("ok")
+  try {
+    console.log({
+  content: data.message,
+  id_discution: parseInt(id),
+  id_user: user.id_user,
+  status: "accepted",
+  id_anwsered_post:1
+});
+    const response = await api.post("/posts", {
+      content: data.message,
+      id_discution: parseInt(id),
+      id_user: user.id_user, 
+      status: "accepted",
+      id_anwsered_post:1
+    });
+    setPosts((prevPosts) => [...prevPosts, response.data]);
+    setShowAddPost(false);
+  } catch (error) {
+    console.log(error);
+  }
+};
   return (
 
     
@@ -73,16 +93,13 @@ export default function DiscutionPage() {
           <p className="descriptionPara">{discutions[0].description}</p>
         </div>
         )}
-     
-
         <div className="divAddComments">
             {!showAddPost && (
                 <Button text="Ajouter un commentaire" onClick={() => {
                   if(user){
                     setShowAddPost(true)
-                  }else{
+                  } else {
                     navigate("/login")
-
                   }
                 }} />
             )}
@@ -107,7 +124,6 @@ export default function DiscutionPage() {
             );
           })}
           </div>
-
             {showAddPost && user && (
               <MessageForm onSubmit={handleSubmitPost} />
             )}

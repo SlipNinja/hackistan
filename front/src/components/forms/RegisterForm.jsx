@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './../../styles/component/registerForm.css'
 
 function RegisterForm({ onSubmit }) {
     const [username, setUsername] = useState("");
@@ -50,7 +51,7 @@ function RegisterForm({ onSubmit }) {
                 />
             </div>
 
-            <button type="submit" className="formButton">
+            <button type="submit" className="formButton" >
                 S’inscrire
             </button>
         </form>
