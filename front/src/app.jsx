@@ -14,7 +14,7 @@ import { useAuth } from "./hook/useAuth";
 
 function App() {
 
-	const { user } = useAuth();
+	const { user, login} = useAuth();
 
 	return (
 		<BrowserRouter>
@@ -26,12 +26,7 @@ function App() {
 					path="/login"
 					element={
 						<LoginForm
-							onSubmit={async ({ email, password }) => {
-                try {
-                  await login(email, password);
-                } catch (err) {
-                  console.error(err);
-                }}}
+							onSubmit={(email, password)=>login(email, password)}
 						/>
 					}
 				/>

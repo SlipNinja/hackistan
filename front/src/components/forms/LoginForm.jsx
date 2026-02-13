@@ -2,9 +2,10 @@ import { useState } from "react";
 import "./../../styles/component/loginForm.css"
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useAuth } from "../../hook/useAuth";
 
 function LoginForm({ onSubmit }) {
+    const {login}=useAuth()
     let navigate=useNavigate()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -13,8 +14,8 @@ function LoginForm({ onSubmit }) {
     const handleSubmit = async (e) => {
      e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3000/auth/login", { email, password });
-            localStorage.setItem("token", response.data.token);
+            console.log(email,password)
+           onSubmit(email,password)
             navigate("/");
         } catch (err) {
             console.log(err);

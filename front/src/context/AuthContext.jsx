@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
  import Cookies from "js-cookie"
+ import api from "./../api/axios"
 
 
 export const AuthContext = createContext();
@@ -24,18 +25,21 @@ export const AuthProvider = ({ children }) => {
   }
   setLoading(false);
 }, []); 
-
-  const login = async (email,password) => {
+const login = async (email,password) => {
+    
                 const body={
                   email:email,
                   password:password
                 }
+                console.log(body)
                 const response=await api.post("/auth/login", body)
                 const token=response.data.token
                   Cookies.set("token", token , { expires: 1 });    
-                  setUser(jwtDecode(token))     
+                  setUser(jwtDecode(token))
+                  console.log (response.data)
           }
- 
+
+  
   const logout = () => {
   Cookies.remove("token");
   setUser(null);
@@ -47,3 +51,6 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+
+ 
