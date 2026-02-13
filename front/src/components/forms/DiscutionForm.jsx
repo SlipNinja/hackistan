@@ -10,6 +10,7 @@ function DiscutionForm({ onSubmit }) {
 	const navigate = useNavigate();
 
 	const handleSubmit = async (e) => {
+		
 		e.preventDefault();
 		const response = await onSubmit({ title, content });
 		navigate("/");
