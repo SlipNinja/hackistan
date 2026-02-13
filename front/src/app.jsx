@@ -20,90 +20,63 @@ function App() {
 		<BrowserRouter>
 			<Header />
 			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/discution/:id" element={<DiscutionPage />} />
+				<Route
+					path="/login"
+					element={
+						<LoginForm
+							onSubmit={async (d) => {
+								const { email, password } = d;
+								const body = {
+									email: email,
+									password: password,
+								};
+								const response = await api.post("/auth/login", body);
+								console.log(response.data);
+								Cookies.set("token", response.data.token, { expires: 1 });
+							}}
+						/>
+					}
+				/>
+				<Route
+					path="/register"
+					element={
+						<RegisterForm
+							onSubmit={async (d) => {
+								const { username, email, password } = d;
+								const body = {
+									username: username,
+									email: email,
+									password: password,
+									role: "user",
+								};
+								const response = await api.post("/auth/register", body);
+								console.log(response.data);
+							}}
+						/>
+					}
+				/>
 				{user && (
 					<Route element={<PrivateRoute />}>
 						<Route
 							path="/discutionForm"
 							element={
 								<DiscutionForm
-									onSubmit={(d) => {
+									onSubmit={async (d) => {
 										const { title, content } = d;
 										const body = {
 											title: title,
 											content: content,
 											id_user: user["id_user"],
 										};
-										const response = api.post("/discutions", body);
-										console.log(body);
+										const response = await api.post("/discutions", body);
+										return response;
 									}}
 								/>
 							}
 						/>
-						<Route
-							path="/MessageForm"
-							element={<MessageForm onSubmit={(d) => console.log("discution", d)} />}
-						/>
-						<Route path="/" element={<Home />} />
-						<Route path="/discution/:id" element={<DiscutionPage />} />
-						<Route
-							path="/login"
-							element={
-								<LoginForm
-									onSubmit={async (d) => {
-										const { email, password } = d;
-										const body = {
-											email: email,
-											password: password,
-										};
-										const response = await api.post("/auth/login", body);
-										console.log(response.data);
-										Cookies.set("token", response.data.token, { expires: 1 });
-									}}
-								/>
-							}
-						/>
-						<Route
-                path="/register"
-                element={
-                  <RegisterForm onSubmit={async (d) => {
-                    const {username, email, password}=d
-                    const body={
-                      username:username,
-                      email:email,
-                      password:password,
-                      role: "user"
-                    }
-                    const response=await api.post("/auth/register", body)
-                    console.log(response.data)
-                  }}
-                  />
-                }
-              />
-              
-        </Route>
-				)}
-				{!user && (
-					<>
-						<Route path="/" element={<Home />} />
-						<Route path="/discution/:id" element={<DiscutionPage />} />
-						<Route
-							path="/login"
-							element={
-								<LoginForm
-									onSubmit={async (d) => {
-										const { email, password } = d;
-										const body = {
-											email: email,
-											password: password,
-										};
-										const response = await api.post("/auth/login", body);
-										console.log(response.data);
-										Cookies.set("token", response.data.token, { expires: 1 });
-									}}
-								/>
-							}
-						/>
-					</>
+					</Route>
 				)}
 			</Routes>
 			<Footer />

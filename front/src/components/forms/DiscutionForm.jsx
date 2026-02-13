@@ -1,14 +1,18 @@
 import { useState } from "react";
 import "./../../styles/component/discutionForm.css";
 import { useAuth } from "../../hook/useAuth";
+import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
 function DiscutionForm({ onSubmit }) {
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
+	const navigate = useNavigate();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		onSubmit({ title, content });
+		const response = await onSubmit({ title, content });
+		navigate("/");
 	};
 
 	return (
@@ -42,9 +46,9 @@ function DiscutionForm({ onSubmit }) {
 				/>
 			</div>
 
-			<button type="submit" className="formButton">
+			<Button type="submit" className="formButton">
 				Publier
-			</button>
+			</Button>
 		</form>
 	);
 }
