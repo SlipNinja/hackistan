@@ -22,11 +22,19 @@ export const AuthProvider = ({ children }) => {
       console.error(error);
     }
   }
-
   setLoading(false);
 }, []); 
 
-  
+  const login = async (email,password) => {
+                const body={
+                  email:email,
+                  password:password
+                }
+                const response=await api.post("/auth/login", body)
+                const token=response.data.token
+                  Cookies.set("token", token , { expires: 1 });    
+                  setUser(jwtDecode(token))     
+          }
  
   const logout = () => {
   Cookies.remove("token");
@@ -34,7 +42,7 @@ export const AuthProvider = ({ children }) => {
 };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, logout,  loading }}>
+    <AuthContext.Provider value={{ user, login, setUser, logout,  loading }}>
       {children}
     </AuthContext.Provider>
   );
