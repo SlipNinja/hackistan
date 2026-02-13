@@ -15,6 +15,7 @@ function LoginForm({ onSubmit }) {
         try {
             const response = await axios.post("http://localhost:3000/auth/login", { email, password });
             localStorage.setItem("token", response.data.token);
+            window.dispatchEvent(new Event("login"));
             navigate("/");
         } catch (err) {
             console.log(err);
