@@ -12,14 +12,11 @@ export const transporter = nodemailer.createTransport({
 });
 
 
-
-
 transporter.verify((err, success) => {
   if (err) console.error("Erreur SMTP ", err.message)
     else console.log('SMTP connecté')
  
 });
-
 
 export const sendVerificationMail = async (email, token) => {
 
