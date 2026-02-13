@@ -1,7 +1,9 @@
 import { useState } from "react";
 import './../../styles/component/registerForm.css'
+import {useNavigate} from "react-router-dom"
 
 function RegisterForm({ onSubmit }) {
+    let navigate=useNavigate()
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -9,6 +11,7 @@ function RegisterForm({ onSubmit }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit({ username, email, password });
+        navigate("/login");
     };
 
     return (

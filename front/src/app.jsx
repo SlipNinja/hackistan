@@ -1,5 +1,5 @@
 import PrivateRoute from "./routes/PrivateRoute";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/home";
 import Footer from "./components/Footer";
@@ -47,7 +47,8 @@ function App() {
 							}}
 						/>
 					}
-				/>
+				/> 
+        <Route path="/discutionForm" element={<Navigate to="/login"/>} />
 				{user && (
 					<Route element={<PrivateRoute />}>
 						<Route
