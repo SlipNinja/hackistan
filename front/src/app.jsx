@@ -48,9 +48,8 @@ function App() {
 						/>
 					}
 				/> 
-        <Route path="/discutionForm" element={<Navigate to="/login"/>} />
 				{user && (
-					<Route element={<PrivateRoute />}>
+          <Route element={<PrivateRoute />}>
 						<Route
 							path="/discutionForm"
 							element={
@@ -65,11 +64,14 @@ function App() {
 										const response = await api.post("/discutions", body);
 										return response;
 									}}
-								/>
-							}
+                  />
+                }
 						/>
 					</Route>
 				)}
+        {!user && (
+                <Route path="/discutionForm" element={<Navigate to="/login"/>} />
+        )}
 			</Routes>
 			<Footer />
 		</BrowserRouter>
