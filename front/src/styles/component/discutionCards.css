@@ -60,13 +60,12 @@
     color: #EB58BE; 
 }
 
-<<<<<<< HEAD
 .discussionBar {
     display:flex;
     justify-content: space-between;
     align-items: center;
 }
-=======
+
 .title {
     color: red;
 }

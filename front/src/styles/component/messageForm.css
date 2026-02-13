@@ -31,7 +31,6 @@
 
 .messageForm .formTextarea,
 .messageForm .formInput {
-    width: 100%;
     padding: 12px;
     border-radius: 12px;
     border: 1px solid rgba(227, 82, 198, 0.18);

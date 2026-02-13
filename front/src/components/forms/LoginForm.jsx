@@ -2,21 +2,34 @@ import { useState } from "react";
 import "./../../styles/component/loginForm.css"
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function LoginForm({ onSubmit }) {
     let navigate=useNavigate()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onSubmit({ email, password });
-        navigate ("/")
-    };
+    const handleSubmit = async (e) => {
+     e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:3000/auth/login", { email, password });
+            localStorage.setItem("token", response.data.token);
+            navigate("/");
+        } catch (err) {
+            console.log(err);
+            if (err.response?.data?.message) {
+                setError(err.response.data.message);
+            } else {
+                setError("Erreur serveur");
+            }
+        }
+        };
+
 
     return (
         <div className="loginContent">
-        <form className="form loginForm" onSubmit={handleSubmit}>
+        <form className="form loginForm" >
             <h2 className="formTitle">Connexion</h2>
 
             <div className="formGroup">
@@ -26,7 +39,10 @@ function LoginForm({ onSubmit }) {
                     type="email"
                     className="formInput"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                        setError("");
+                    }}
                     required
                 />
             </div>
@@ -38,12 +54,21 @@ function LoginForm({ onSubmit }) {
                     type="password"
                     className="formInput"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                        setPassword(e.target.value);
+                        setError("");
+                    }}
                     required
                 />
             </div>
+            {error && <div className="errorMessage">{error}</div>}
+
             <div className="loginButton">
-            <Button text="Se connecter" onClick={handleSubmit}/>
+            <Button text="Se connecter" onClick={handleSubmit} />
+            </div>
+            <div className="registerLink">
+                <span>Pas encore de compte ?</span>
+                <a href="/register">Inscrivez-vous</a>
             </div>
         </form>
         </div>
