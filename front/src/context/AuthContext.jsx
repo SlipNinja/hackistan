@@ -26,7 +26,8 @@ export const AuthProvider = ({ children }) => {
   setLoading(false);
 }, []); 
 const login = async (email,password) => {
-    
+
+console.log("koukou")
                 const body={
                   email:email,
                   password:password
@@ -40,9 +41,10 @@ const login = async (email,password) => {
           }
 
   
-  const logout = () => {
+  const logout =  () => {
   Cookies.remove("token");
   setUser(null);
+  navigate("/");
 };
 
   return (
